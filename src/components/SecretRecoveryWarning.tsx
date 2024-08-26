@@ -1,8 +1,10 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
+import { useNavigate } from "react-router-dom";
 
 const SecretRecoveryWarning = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center my-[20%]">
       <h1 className="text-4xl font-bold">Secret Recovery Phrase</h1>
@@ -23,7 +25,14 @@ const SecretRecoveryWarning = () => {
         <Checkbox id="terms2" />
         <Label htmlFor="terms">Accept terms and conditions</Label>
       </div>
-      <Button className="mt-10">Next</Button>
+      <Button
+        className="mt-10"
+        onClick={() => {
+          navigate("/network/seed");
+        }}
+      >
+        Next
+      </Button>
     </div>
   );
 };
